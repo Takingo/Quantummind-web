@@ -85,6 +85,213 @@ const NFCSystems = () => {
         </div>
       </section>
 
+      {/* ==================== TAP & TAKE AUTOMATION SECTION ==================== */}
+      
+      {/* Tap & Take Automation Animation */}
+      <section className="tap-take-animation section-padding">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2>Tap & Take <span className="text-gradient">Automation</span></h2>
+            <p>Seamless access control and device management in real-time</p>
+          </motion.div>
+
+          <motion.div
+            className="tap-take-wrapper"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="industrial-hall">
+              {/* Ambient Lighting */}
+              <div className="ambient-lighting blue"></div>
+              <div className="ambient-lighting orange"></div>
+              
+              {/* Tool Access Station */}
+              <div className="access-station">
+                <div className="station-body">
+                  <div className="station-panel">
+                    <div className="panel-light"></div>
+                    <div className="panel-text">TOOL ACCESS</div>
+                  </div>
+                  <div className="tool-compartment">
+                    <div className="tool-icon">🔧</div>
+                    <div className="tool-icon">🔨</div>
+                    <div className="tool-icon">⚙️</div>
+                  </div>
+                </div>
+                
+                {/* NFC Reader */}
+                <div className="nfc-reader">
+                  <div className="reader-body">
+                    <div className="reader-icon">📱</div>
+                    <div className="scan-waves">
+                      <div className="wave"></div>
+                      <div className="wave"></div>
+                      <div className="wave"></div>
+                    </div>
+                  </div>
+                  <div className="reader-label">Quantum NFC</div>
+                </div>
+              </div>
+
+              {/* Worker with Badge */}
+              <div className="worker-character">
+                <div className="worker-body">
+                  <div className="worker-head">👷</div>
+                  <div className="worker-badge">
+                    <div className="badge-chip"></div>
+                  </div>
+                  <div className="worker-hand">
+                    <div className="nfc-chip">
+                      <div className="chip-glow"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="tap-motion-line"></div>
+              </div>
+
+              {/* Holographic UI Display */}
+              <div className="holographic-ui">
+                <div className="ui-frame">
+                  <div className="ui-header">
+                    <div className="header-icon">✓</div>
+                    <div className="header-text">User Identified</div>
+                  </div>
+                  <div className="ui-body">
+                    <div className="user-info">
+                      <div className="info-icon">👤</div>
+                      <div className="info-text">
+                        <div className="info-name">John Worker</div>
+                        <div className="info-role">Operator</div>
+                      </div>
+                    </div>
+                    <div className="access-status">
+                      <div className="status-text">Access Granted</div>
+                      <div className="status-check">✓</div>
+                    </div>
+                  </div>
+                  <div className="ui-scanlines"></div>
+                </div>
+                <div className="ui-glow"></div>
+              </div>
+
+              {/* Dashboard Screen */}
+              <div className="dashboard-screen">
+                <div className="screen-frame">
+                  <div className="screen-header">
+                    <span className="screen-logo">QMI Dashboard</span>
+                    <div className="sync-indicator">
+                      <div className="sync-icon">🔄</div>
+                      <span>Syncing...</span>
+                    </div>
+                  </div>
+                  <div className="screen-content">
+                    <div className="device-list">
+                      <div className="device-item assigned">
+                        <span className="device-icon">🔧</span>
+                        <span className="device-name">Tool A</span>
+                        <span className="device-status">Assigned</span>
+                      </div>
+                      <div className="device-item available">
+                        <span className="device-icon">🔨</span>
+                        <span className="device-name">Tool B</span>
+                        <span className="device-status">Available</span>
+                      </div>
+                      <div className="device-item available">
+                        <span className="device-icon">⚙️</span>
+                        <span className="device-name">Tool C</span>
+                        <span className="device-status">Available</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Data Sync Visualization */}
+              <div className="data-sync-flow">
+                <svg className="sync-network" viewBox="0 0 200 100" preserveAspectRatio="none">
+                  <path d="M 40 50 L 100 50 L 160 50" className="sync-path" />
+                  <circle cx="40" cy="50" r="3" className="sync-node reader" />
+                  <circle cx="100" cy="50" r="4" className="sync-node cloud" />
+                  <circle cx="160" cy="50" r="3" className="sync-node app" />
+                </svg>
+                <div className="sync-labels">
+                  <span className="sync-label left">NFC Reader</span>
+                  <span className="sync-label center">☁️ Cloud</span>
+                  <span className="sync-label right">App</span>
+                </div>
+                <div className="data-packets">
+                  <div className="data-packet packet-1"></div>
+                  <div className="data-packet packet-2"></div>
+                </div>
+              </div>
+
+              {/* Additional Stations (Background) */}
+              <div className="background-stations">
+                <div className="bg-station station-1">
+                  <div className="bg-worker">👷‍♀️</div>
+                  <div className="bg-activity"></div>
+                </div>
+                <div className="bg-station station-2">
+                  <div className="bg-worker">👷</div>
+                  <div className="bg-activity"></div>
+                </div>
+              </div>
+
+              {/* Quantum Logo */}
+              <div className="quantum-logo-watermark">
+                <div className="logo-text">Quantum Mind Innovation</div>
+                <div className="logo-tagline">Automation Begins with a Single Tap</div>
+                <div className="logo-pulse"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Feature Highlights */}
+          <motion.div
+            className="tap-take-features"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="feature-highlight">
+              <div className="highlight-icon">⚡</div>
+              <div className="highlight-text">
+                <h4>Instant Recognition</h4>
+                <p>User identified in milliseconds</p>
+              </div>
+            </div>
+            <div className="feature-highlight">
+              <div className="highlight-icon">📊</div>
+              <div className="highlight-text">
+                <h4>Live Dashboard</h4>
+                <p>Real-time device tracking</p>
+              </div>
+            </div>
+            <div className="feature-highlight">
+              <div className="highlight-icon">☁️</div>
+              <div className="highlight-text">
+                <h4>Cloud Sync</h4>
+                <p>Automatic data synchronization</p>
+              </div>
+            </div>
+            <div className="feature-highlight">
+              <div className="highlight-icon">🔗</div>
+              <div className="highlight-text">
+                <h4>Connected Ecosystem</h4>
+                <p>Android, iOS, and Web platforms</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Cinematic Production Check Animation */}
       <section className="production-check-animation section-padding">
         <div className="container">

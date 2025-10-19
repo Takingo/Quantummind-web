@@ -90,18 +90,22 @@ const UWBRTLS = () => {
                 <div className="anchor anchor-1">
                   <div className="anchor-pulse"></div>
                   <span>A1</span>
+                  <div className="anchor-label">UWB Anchor</div>
                 </div>
                 <div className="anchor anchor-2">
                   <div className="anchor-pulse"></div>
                   <span>A2</span>
+                  <div className="anchor-label">UWB Anchor</div>
                 </div>
                 <div className="anchor anchor-3">
                   <div className="anchor-pulse"></div>
                   <span>A3</span>
+                  <div className="anchor-label">UWB Anchor</div>
                 </div>
                 <div className="anchor anchor-4">
                   <div className="anchor-pulse"></div>
                   <span>A4</span>
+                  <div className="anchor-label">UWB Anchor</div>
                 </div>
                 
                 {/* Tracked Objects with Live Status */}
@@ -109,6 +113,7 @@ const UWBRTLS = () => {
                   <div className="object-icon">🚜</div>
                   <div className="signal-ring"></div>
                   <div className="status-badge moving">Moving</div>
+                  <div className="tag-label">UWB Tag</div>
                   <div className="coordinates">X: 4.2m Y: 3.8m</div>
                 </div>
                 
@@ -116,6 +121,7 @@ const UWBRTLS = () => {
                   <div className="object-icon">👷</div>
                   <div className="signal-ring"></div>
                   <div className="status-badge safe">Safe</div>
+                  <div className="tag-label">UWB Tag</div>
                   <div className="coordinates">X: 7.1m Y: 5.3m</div>
                 </div>
                 
@@ -123,6 +129,7 @@ const UWBRTLS = () => {
                   <div className="object-icon">📦</div>
                   <div className="signal-ring"></div>
                   <div className="status-badge idle">Idle</div>
+                  <div className="tag-label">UWB Tag</div>
                   <div className="coordinates">X: 2.9m Y: 1.7m</div>
                 </div>
 

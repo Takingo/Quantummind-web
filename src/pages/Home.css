@@ -82,7 +82,7 @@
   width: 100%;
   min-height: auto;
   margin: 4rem auto 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(0.5rem, 3vw, 2rem); /* Responsive padding with clamp */
   overflow: visible; /* Allow animations to show */
   display: flex;
   flex-direction: column;
@@ -95,6 +95,14 @@
   .factory-scenario {
     min-height: auto;
     margin-bottom: 0;
+  }
+}
+
+/* iPad Landscape (1024px) - Optimal scaling */
+@media (max-width: 1024px) and (min-width: 993px) {
+  .scenario-container {
+    transform: scale(0.92);
+    padding: clamp(1.5rem, 2.5vw, 2rem) clamp(1rem, 2.5vw, 1.5rem) 0.5rem clamp(1rem, 2.5vw, 1.5rem);
   }
 }
 
@@ -138,7 +146,7 @@
   border: 1px solid rgba(0,225,255,0.3);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0,225,255,0.15);
-  padding: 2rem 2rem 0.5rem 2rem;
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem) 0.5rem clamp(1rem, 3vw, 2rem);
   overflow: visible; /* Changed back to visible for animations */
   display: flex;
   justify-content: space-between;
@@ -148,15 +156,16 @@
   min-height: 350px;
   width: 100%; /* Ensure full width */
   max-width: 100%; /* Prevent overflow */
+  transform-origin: center top; /* Scale from center top */
 }
 
 /* Responsive improvements */
 @media (max-width: 992px) {
   .scenario-container {
     flex-direction: column;
-    padding: 2rem 1.5rem;
     min-height: auto; /* Let content define height */
     gap: 5rem; /* More space between scenarios */
+    transform: scale(0.95); /* Slightly scale down to fit better */
   }
   
   .scenario-section {
@@ -177,7 +186,7 @@
 @media (max-width: 768px) {
   .scenario-container {
     gap: 6rem;
-    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+    transform: scale(0.9); /* Scale down for iPad and tablets */
   }
   
   .scenario-section {
@@ -193,11 +202,18 @@
   }
 }
 
+/* iPad Portrait (768px) - Specific optimization */
+@media (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
+  .scenario-container {
+    transform: scale(0.88);
+  }
+}
+
 @media (max-width: 576px) {
   .scenario-container {
     min-height: auto;
-    padding: 1.5rem 1rem 0.5rem 1rem;
     gap: 5rem;
+    transform: scale(0.88); /* Scale for larger phones */
   }
   
   .scenario-section {
@@ -216,7 +232,7 @@
 @media (max-width: 480px) {
   .scenario-container {
     gap: 4rem;
-    padding: 1.5rem 1rem 0.5rem 1rem;
+    transform: scale(0.85); /* Scale for iPhone SE and smaller phones */
   }
   
   .scenario-section {
@@ -229,6 +245,38 @@
   
   .safety-section {
     min-height: 550px;
+  }
+}
+
+/* iPhone 11 Pro and similar (414px) */
+@media (max-width: 414px) {
+  .scenario-container {
+    transform: scale(0.82);
+    gap: 3.5rem;
+  }
+  
+  .factory-scenario {
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+  }
+}
+
+/* iPhone SE and smaller (375px) */
+@media (max-width: 375px) {
+  .scenario-container {
+    transform: scale(0.78);
+    gap: 3rem;
+  }
+  
+  .scenario-section {
+    min-height: 420px;
+  }
+  
+  .entrance-section {
+    min-height: 380px;
+  }
+  
+  .safety-section {
+    min-height: 520px;
   }
 }
 
@@ -246,9 +294,9 @@
   align-items: center;
   justify-content: center;
   min-height: 300px;
-  padding: 1rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
   isolation: isolate;
-  overflow: hidden;
+  overflow: visible; /* Allow animations to show fully without clipping */
 }
 
 .scenario-divider {
@@ -262,12 +310,12 @@
 /* Animation overflow cleanup - Ensure animations don't overflow explanation */
 .entrance-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow animations to show fully */
 }
 
 .safety-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow animations to show fully */
 }
 
 .uwb-animation {
@@ -2024,6 +2072,7 @@
   bottom: 5%;
   width: 55px; /* 50% smaller */
   z-index: 5;
+  transform-origin: center center;
 }
 
 .tracking-dashboard-left {
@@ -2034,15 +2083,25 @@
   right: 2%;
 }
 
-/* Mobile responsive - progressive repositioning */
+/* Tablet - scale down to prevent overlap */
+@media (max-width: 1024px) {
+  .tracking-dashboard-left,
+  .tracking-dashboard-right {
+    transform: scale(0.85);
+    bottom: 6%;
+  }
+}
+
+/* Mobile responsive - progressive repositioning and scaling */
 @media (max-width: 992px) {
   .tracking-dashboard-left,
   .tracking-dashboard-right {
+    transform: scale(0.7); /* Scale down significantly */
     bottom: 8%;
   }
 }
 
-/* HIDE DASHBOARDS ON MOBILE - They block animations */
+/* HIDE DASHBOARDS ON SMALLER TABLETS/MOBILE - They block animations */
 @media (max-width: 768px) {
   .tracking-dashboard-left,
   .tracking-dashboard-right {
@@ -2162,35 +2221,37 @@
 @media (max-width: 1200px) {
   .tracking-dashboard-left,
   .tracking-dashboard-right {
-    width: 100px;
+    width: 55px; /* Keep original small size */
+    transform: scale(0.9);
   }
 }
 
 @media (max-width: 992px) {
   .tracking-dashboard-left,
   .tracking-dashboard-right {
-    width: 90px;
+    width: 55px; /* Keep original small size */
+    /* Scale is already applied above */
   }
   
   .dashboard-mini {
-    padding: 0.35rem;
+    padding: 0.25rem;
   }
   
   .track-item {
-    padding: 0.15rem 0.25rem;
+    padding: 0.1rem 0.2rem;
   }
   
   .track-icon {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
   
   .mini-header span {
-    font-size: 0.45rem;
+    font-size: 0.35rem;
   }
   
   .track-status,
   .track-distance {
-    font-size: 0.45rem;
+    font-size: 0.35rem;
   }
 }
 
@@ -2231,6 +2292,7 @@
   width: 80px !important; /* Force smaller width */
   height: 45px !important; /* Force height */
   z-index: 3;
+  transform-origin: center center;
 }
 
 /* Responsive Dashboard - Progressive repositioning */
@@ -2240,6 +2302,7 @@
     height: 42px !important;
     right: 30%;
     bottom: 10%; /* Bottom */
+    transform: scale(0.95);
   }
 }
 
@@ -2249,6 +2312,7 @@
     height: 40px !important;
     bottom: 12%; /* Bottom */
     right: 25%;
+    transform: scale(0.85);
   }
 }
 
@@ -2258,6 +2322,7 @@
     height: 38px !important;
     right: 20%;
     bottom: 15%; /* Bottom - more spacing */
+    transform: scale(0.7); /* Scale down significantly */
   }
 }
 

@@ -31,6 +31,7 @@ const Navbar = () => {
     { path: '/nfc-systems', label: t.nav.nfcSystems },
     { path: '/uwb-rtls', label: t.nav.uwbRtls },
     { path: '/solutions', label: t.nav.solutions },
+    { path: '/web-development', label: 'Web Development' },
     { path: '/innovation-hub', label: t.nav.innovationHub },
     { path: '/contact', label: t.nav.contact },
   ];

@@ -9,6 +9,7 @@ import AppDevelopment from './pages/AppDevelopment';
 import NFCSystems from './pages/NFCSystems';
 import UWBRTLS from './pages/UWBRTLS';
 import Solutions from './pages/Solutions';
+import WebDevelopment from './pages/WebDevelopment';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/nfc-systems" element={<NFCSystems />} />
               <Route path="/uwb-rtls" element={<UWBRTLS />} />
               <Route path="/solutions" element={<Solutions />} />
+              <Route path="/web-development" element={<WebDevelopment />} />
               <Route path="/innovation-hub" element={<InnovationHub />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
