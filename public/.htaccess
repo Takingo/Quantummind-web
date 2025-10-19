@@ -1,0 +1,40 @@
+# Quantum Mind Innovation - IONOS Apache Configuration
+
+# MIME Types - Fix CSS/JS loading
+AddType application/javascript .js .mjs
+AddType text/css .css
+AddType image/svg+xml .svg .svgz
+
+# SPA Routing - React Router support
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Serve existing files/folders directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    
+    # Don't redirect if accessing assets, PHP, or existing files
+    RewriteCond %{REQUEST_URI} !^/assets/
+    RewriteCond %{REQUEST_URI} !\.php$
+    RewriteCond %{REQUEST_URI} !\.jpg$
+    RewriteCond %{REQUEST_URI} !\.png$
+    RewriteCond %{REQUEST_URI} !\.svg$
+    RewriteCond %{REQUEST_URI} !\.css$
+    RewriteCond %{REQUEST_URI} !\.js$
+    
+    # Redirect everything else to index.html
+    RewriteRule ^(.*)$ /index.html [QSA,L]
+</IfModule>
+
+# Error pages redirect to index.html for SPA
+ErrorDocument 404 /index.html
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Character encoding
+AddDefaultCharset UTF-8
